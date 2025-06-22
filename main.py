@@ -26,7 +26,9 @@ if __name__ == "__main__":
     st.divider()
     st.subheader("Reconstruction errors obtained")
     values = np.loadtxt("pics/results.txt")
+    pvalues = np.loadtxt("pics/results_pvalue_zscore.txt")
     df = pd.DataFrame(values, columns=["Value"])
+    df['p-Value'] = pvalues
     networks = ['vis_1', 'vis_2', 'mot_1', 'mot_2', 'dan_2', 'dan_1', 'van_1', 'fp_1', 'lim_1', 'lim_2', 'fp_2', 'fp_3',
                 'fp_4', 'mot_3', 'dmn_3', 'dmn_1', 'dmn_2']
     df["Connections"] = [f"{networks[i]}_{networks[j]}"
